@@ -7,26 +7,32 @@ export default {
       name: "title",
       title: "Tytuł posta",
       type: "string",
-      required: true,
+      validation: Rule =>
+        Rule.required()
+          .min(5)
+          .error("Pole 'tytuł' musi zawierać minimum 5 znaków"),
     },
     {
       title: "Krótka treść posta",
       name: "content2",
       type: "string",
-      required: true,
+      validation: Rule =>
+        Rule.required()
+          .min(10)
+          .error("Pole 'krótka treść' musi zawierać minimum 10 znaków"),
     },
     {
       title: "Pełna treść posta",
       name: "content",
       type: "array",
-      required: true,
+      validation: Rule => Rule.required().min(1),
       of: [{ type: "block" }],
     },
     {
       name: "background",
       title: "Tło",
       type: "image",
-      required: true,
+      validation: Rule => Rule.required(),
     },
     {
       name: "images",
@@ -38,7 +44,7 @@ export default {
       name: "slug",
       title: "Adres slug",
       type: "slug",
-      required: true,
+      validation: Rule => Rule.required(),
       options: {
         source: "title",
         minLength: 96,

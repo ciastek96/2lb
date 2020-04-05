@@ -1,41 +1,42 @@
 import React, { Component } from "react"
-import { Link } from "gatsby"
-// import { SRLWrapper } from "simple-react-lightbox"
-// import Masonry from "react-masonry-css"
-import { useStaticQuery, graphql } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import BackgroundImage from "gatsby-background-image"
+
+import { render } from "react-dom"
 
 import Layout from "../layout/Layout"
 import Heading from "../components/Heading/Heading"
 import Fluidbox from "../components/Fluidbox/Fluidbox"
+import Lightbox from "../components/Lightbox/Lightbox"
 import Video from "../components/Video/Video"
 import Button from "../components/Button/Button"
 import StyledBlockContent from "../components/StyledBlockContent/StyledBlockContent"
-
-import Lightbox from "../components/Lightbox/Lightbox"
 
 const StyledImageItem = styled.img`
   max-width: 100%;
 `
 
 const StyledWrapper = styled.div`
+  max-width: ${({ theme }) => theme.breakpoints.lg};
   display: flex;
-  max-width: ${({ theme }) => theme.breakpoints.md};
   margin: 0 auto;
   padding: 35px;
   flex-direction: column;
   justify-content: center;
-  @media all and (max-width: ${({ theme }) => theme.breakpoints.xs}) {
-    padding: 10px;
-  }
 `
 
 const StyledInnerWrapper = styled.div`
+  width: 100%;
   background-color: ${({ theme }) => theme.dark2};
   border-radius: 15px;
   margin: 0 auto 45px;
-  padding: 35px;
+  padding: 45px;
+  overflow: hidden;
+
+  img {
+    max-width: 100%;
+  }
 
   ${StyledBlockContent} {
     margin-top: 0;
@@ -54,47 +55,6 @@ const Content = styled.p`
   color: ${({ theme }) => theme.grey200};
   text-align: justify;
 `
-const StyledLink = styled(Link)`
-  text-decoration: none;
-  color: ${({ theme }) => theme.grey300};
-  margin: 5px 0 25px;
-
-  &:hover {
-    color: white;
-  }
-`
-const StyledHeading = styled.div`
-  display: flex;
-  align-items: center;
-`
-
-const DateInfo = styled.p`
-  text-align: center;
-  font-size: ${({ theme }) => theme.fontSize.s};
-  color: ${({ theme }) => theme.grey300};
-  font-weight: 500;
-  margin: 0 15px;
-`
-
-// const StyledSRLWrapper = styled(SRLWrapper)`
-//   margin-bottom: 0;
-// `
-
-// const StyledMasonry = styled(Masonry)`
-//   display: flex;
-//   margin-top: 60px;
-//   margin-left: 0;
-//   max-width: auto;
-
-//   .my-masonry-grid_column {
-//     background-clip: padding-box;
-
-//     img {
-//       max-width: 100%;
-//       margin: 0;
-//     }
-//   }
-// `
 
 class postTemplate extends Component {
   state = {

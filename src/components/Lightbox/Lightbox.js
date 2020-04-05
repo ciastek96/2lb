@@ -4,8 +4,7 @@ import Carousel, { Modal, ModalGateway } from "react-images"
 import styled from "styled-components"
 
 const StyledWrapper = styled.div`
-  margin: 25px auto;
-  text-align: center;
+  width: 100%;
 `
 
 const Lightbox = ({ images }) => {
