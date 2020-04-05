@@ -6,7 +6,7 @@ import Heading from "../Heading/Heading"
 const StyledWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  margin: 15px 20px;
+  margin: 15px;
   align-items: center;
   ${({ footer }) =>
     footer &&

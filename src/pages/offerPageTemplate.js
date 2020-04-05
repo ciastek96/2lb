@@ -30,11 +30,15 @@ const StyledInnerWrapper = styled.div`
   padding: 45px;
   border-radius: 15px;
   overflow: hidden;
-  text-align: justify;
   width: 100%;
 
   img {
     max-width: 100%;
+  }
+
+  @media all and (max-width: ${({ theme }) => theme.breakpoints.xs}) {
+    padding: 45px 10px;
+    background: none;
   }
 `
 const StyledHeading = styled(Heading)`

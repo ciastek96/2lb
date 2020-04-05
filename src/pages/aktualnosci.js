@@ -19,7 +19,7 @@ const StyledWrapper = styled.div`
   grid-gap: 35px;
 
   @media all and (max-width: ${({ theme }) => theme.breakpoints.xs}) {
-    padding: 10px;
+    padding: 35px 15px;
   }
 `
 

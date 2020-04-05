@@ -24,6 +24,10 @@ const StyledWrapper = styled.div`
   padding: 35px;
   flex-direction: column;
   justify-content: center;
+
+  @media all and (max-width: ${({ theme }) => theme.breakpoints.xs}) {
+    padding: 35px 0;
+  }
 `
 
 const StyledInnerWrapper = styled.div`
@@ -36,6 +40,10 @@ const StyledInnerWrapper = styled.div`
 
   img {
     max-width: 100%;
+  }
+
+  @media all and (max-width: ${({ theme }) => theme.breakpoints.xs}) {
+    background: none;
   }
 
   ${StyledBlockContent} {

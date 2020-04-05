@@ -33,10 +33,14 @@ const ContactDataWrapper = styled.div`
   margin: 0 auto;
 
   @media all and (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    margin-bottom: 50px;
+    margin-bottom: 35px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: space-around;
+  }
+
+  @media all and (max-width: ${({ theme }) => theme.breakpoints.xs}) {
+    grid-template-columns: 1fr;
   }
 `
 
