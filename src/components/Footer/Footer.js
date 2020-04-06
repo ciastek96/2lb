@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import Img from "gatsby-image"
 import { Link, useStaticQuery, graphql } from "gatsby"
+import { FaFacebookF } from "react-icons/fa"
 
 import ContactDataItem from "../ContactDataItem/ContactDataItem"
 import Heading from "../Heading/Heading"
@@ -9,8 +10,6 @@ import PhoneIcon from "../../assets/ikonate/svg/phone.svg"
 import PinIcon from "../../assets/ikonate/svg/location.svg"
 import PersonIcon from "../../assets/ikonate/svg/person.svg"
 import EmailIcon from "../../assets/ikonate/svg/envelope.svg"
-import GalleryGrid from "../GalleryGrid/GalleryGrid"
-import Logotype from "../../assets/drogprof2.png"
 
 const StyledWrapper = styled.div`
   width: 100%;
@@ -22,18 +21,35 @@ const StyledInnerWrapper = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
   justify-content: center;
   margin: 0 auto;
+
+  /* @media all and (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+
+    &:first-child {
+      margin-top: 35px;
+    }
+    &:last-child {
+      margin-bottom: 35px;
+    }
+  } */
+
+  @media all and (max-width: ${({ theme }) => theme.breakpoints.xs}) {
+    display: flex;
+    flex-direction: column;
+  }
 `
 
 const Row = styled.div`
   background-color: ${({ theme }) => theme.dark};
-  padding: 30px;
+  margin: 45px;
 `
 
 const Paragraph = styled.p`
   margin: 25px 0;
   line-height: 1.7;
   text-align: left;
-  color: ${({ theme }) => theme.grey300};
+  color: ${({ theme }) => theme.grey200};
   font-size: ${({ theme }) => theme.fontSize.xs};
 `
 
@@ -54,7 +70,7 @@ const StyledListItem = styled.li`
 
 const StyledLink = styled(Link)`
   text-decoration: none;
-  color: ${({ theme }) => theme.grey300};
+  color: ${({ theme }) => theme.grey200};
   font-size: ${({ theme }) => theme.fontSize.xs};
   transition: color 0.15s ease-in-out;
 
@@ -68,12 +84,6 @@ const StyledImg = styled(Img)`
   width: 100%;
 `
 
-const StyledLogo = styled.img`
-  display: block;
-  margin-top: 5px;
-  max-width: 100%;
-`
-
 const CopyrightsInfo = styled.div`
   width: 100%;
   background: ${({ theme }) => theme.dark2};
@@ -83,6 +93,15 @@ const CopyrightsInfo = styled.div`
   font-size: ${({ theme }) => theme.fontSize.xs};
   text-transform: uppercase;
   letter-spacing: 1.1px;
+  border-top: 1px solid rgba(151, 151, 151, 0.5);
+`
+const StyledFaFacebookF = styled(FaFacebookF)`
+  font-size: ${({ theme }) => theme.fontSize.xs};
+  color: ${({ theme }) => theme.grey300};
+
+  &:hover {
+    color: ${({ theme }) => theme.primary};
+  }
 `
 
 const Footer = () => {
@@ -104,6 +123,14 @@ const Footer = () => {
         }
         content
       }
+      allSanityOffer {
+        nodes {
+          title
+          slug {
+            current
+          }
+        }
+      }
     }
   `)
 
@@ -116,6 +143,19 @@ const Footer = () => {
           </Link>
           <Paragraph>{data.sanityFooter.content}</Paragraph>
         </Row>
+        <Row>
+          <Heading primary>Oferta</Heading>
+          <StyledList>
+            {data.allSanityOffer.nodes.map(item => (
+              <StyledListItem>
+                <StyledLink to={`/oferta/${item.slug.current}`}>
+                  {item.title}
+                </StyledLink>
+              </StyledListItem>
+            ))}
+          </StyledList>
+        </Row>
+
         <Row>
           <Heading primary>Kontakt</Heading>
           <ContactDataItem
@@ -140,10 +180,10 @@ const Footer = () => {
             content={data.sanityPersonalData.address}
           />
         </Row>
-        <Row>
+        {/*<Row>
           <Heading primary>Portfolio</Heading>
-          {/* <GalleryGrid /> */}
-        </Row>
+          <GalleryGrid />
+        </Row> */}
         <Row>
           <Heading primary>Strony</Heading>
           <StyledList>
@@ -159,10 +199,18 @@ const Footer = () => {
             <StyledListItem>
               <StyledLink to="/kontakt">Kontakt</StyledLink>
             </StyledListItem>
+            <StyledListItem>
+              <a
+                href="https://www.facebook.com/Second-Life-Bruk-254129215498165/"
+                target="_blank"
+              >
+                <StyledFaFacebookF />
+              </a>
+            </StyledListItem>
           </StyledList>
         </Row>
       </StyledInnerWrapper>
-      <CopyrightsInfo>All copyrights reserved</CopyrightsInfo>
+      <CopyrightsInfo>© {new Date().getFullYear()} 2LB</CopyrightsInfo>
     </StyledWrapper>
   )
 }

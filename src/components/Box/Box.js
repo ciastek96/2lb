@@ -7,7 +7,6 @@ import Button from "../Button/Button"
 
 const StyledWrapper = styled.div`
   width: 100%;
-  /* height: 380px; */
   padding-top: 100%;
   background: ${({ theme }) => theme.dark2};
   background-image: url(${({ bg }) => bg});

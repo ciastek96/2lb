@@ -51,7 +51,7 @@ const Title = styled.h1`
       font-weight: 600;
       text-align: right;
       color: white;
-      animation: ${slideIn} 5.2s ease-in-out;
+      animation: ${slideIn} 5s ease-in-out both;
     `};
 
   @media all and (max-width: ${({ theme }) => theme.breakpoints.md}) {
@@ -71,7 +71,6 @@ const Title = styled.h1`
 
 const HeroHeading = () => {
   const timer = useRef()
-  const firstUpdate = useRef(true)
 
   const headings = ["Układanie", "Mycie", "Renowacja"]
   const [currentHeading, setCurrentHeading] = useState(0)

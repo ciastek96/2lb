@@ -1,24 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-import {
-  IoMdCheckmark,
-  IoMdDoneAll,
-  IoMdColorFill,
-  IoMdStar,
-  IoMdStarOutline,
-  IoMdRibbon,
-  IoMdRose,
-  IoIosRose,
-  IoIosStarOutline,
-  IoIosStar,
-  IoIosHeartEmpty,
-  IoIosHeart,
-  IoIosColorFill,
-  IoIosCheckmarkCircle,
-  IoIosBulb,
-  IoMdBulb,
-} from "react-icons/io"
+import { IoMdDoneAll, IoMdStar, IoIosBulb } from "react-icons/io"
 
 const StyledWrapper = styled.div`
   display: grid;
@@ -30,7 +13,7 @@ const StyledWrapper = styled.div`
 `
 const StyledItem = styled.div`
   top: 0;
-  padding: 35px;
+  margin: 35px;
   display: flex;
   flex-direction: column;
   justify-content: center;

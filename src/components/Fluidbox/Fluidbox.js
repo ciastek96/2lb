@@ -1,19 +1,12 @@
 import React from "react"
 import styled from "styled-components"
 
-// import BgPhoto from "../../assets/hero/hero.jpg"
-import BgPhoto from "../../assets/hero/contact.jpg"
 import Overlay from "../Overlay/Overlay"
 import Heading from "../Heading/Heading"
 
 const StyledWrapper = styled.div`
   width: 100%;
   height: 400px;
-  /* background: url(${BgPhoto});
-  background-position: 50% 50%;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover; */
   background: ${({ theme }) => theme.dark2};
   position: relative;
   z-index: 1;
@@ -21,7 +14,7 @@ const StyledWrapper = styled.div`
   .FluidboxWrapper {
     width: 100%;
     height: 400px;
-    background:${({ theme }) => theme.dark2};
+    background: ${({ theme }) => theme.dark2};
   }
 `
 

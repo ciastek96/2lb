@@ -1,8 +1,6 @@
 import React from "react"
 import styled, { css } from "styled-components"
 
-import Heading from "../Heading/Heading"
-
 const StyledWrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -33,7 +31,7 @@ const StyledIcon = styled.img`
     `}
 `
 
-const StyledHeading = styled(Heading)`
+const StyledHeading = styled.h1`
   color: ${({ theme }) => theme.primary};
   font-size: ${({ theme }) => theme.fontSize.s};
   font-weight: 600;

@@ -13,7 +13,6 @@ const StyledWrapper = styled.div`
 const StyledForm = styled(Form)`
   display: flex;
   flex-direction: column;
-  /* padding-right: 35px; */
 `
 const StyledField = styled(Field)`
   width: 100%;
@@ -132,7 +131,11 @@ class ContactForm extends Component {
               <Label forHtml="content">Twój adres e-mail</Label>
               <StyledTextarea component="textarea" name="content" />
               <StyledErrorMessage name="content" component="div" />
-              <StyledButton type="submit" disabled={isSubmitting}>
+              <StyledButton
+                type="submit"
+                disabled={isSubmitting}
+                disabled="true"
+              >
                 Wyślij
               </StyledButton>
             </StyledForm>

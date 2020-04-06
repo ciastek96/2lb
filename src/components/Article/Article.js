@@ -5,15 +5,12 @@ import { Link } from "gatsby"
 import Heading from "../Heading/Heading"
 import Button from "../Button/Button"
 import Box from "../Box/Box"
-import StyledBlockContent from "../StyledBlockContent/StyledBlockContent"
 
 const StyledWrapper = styled.div`
   width: 100%;
   border-radius: 15px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  /* align-items: center;
-  justify-content: center; */
   overflow: hidden;
   background: ${({ theme }) => theme.dark2};
 
@@ -79,13 +76,10 @@ const StyledLink = styled(Link)`
 const Article = ({ title, content, data, media, author, slug }) => (
   <StyledLink to={`/aktualnosci/${slug}`}>
     <StyledWrapper>
-      {/* <Image media={media} /> */}
       <Box article bgImg={media} slug={`/aktualnosci/${slug}`} />
       <Content>
         <DateInfo>{data}</DateInfo>
         <StyledHeading big>{title}</StyledHeading>
-        {console.log(content)}
-        {/* <StyledBlockContent blocks={content} /> */}
         <Paragraph>{content}</Paragraph>
         <Button>Więcej</Button>
       </Content>

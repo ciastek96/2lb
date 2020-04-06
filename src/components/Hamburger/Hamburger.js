@@ -2,7 +2,6 @@ import React, { Component } from "react"
 import styled from "styled-components"
 
 import MobileMenu from "../MobileMenu/MobileMenu"
-import { CSSTransition } from "react-transition-group"
 
 const StyledWrapper = styled.button`
   cursor: pointer;
@@ -61,7 +60,6 @@ const HamburgerInner = styled.span`
     transform: translateY(5px) rotate(45deg);
   }
 `
-const StyledMobileMenu = styled(MobileMenu)``
 
 class Hamburger extends Component {
   constructor(props) {
@@ -97,7 +95,6 @@ class Hamburger extends Component {
             <HamburgerInner ref={this.hamburgerRef} />
           </HamburgerBox>
         </StyledWrapper>
-        {/* {isOpen && <MobileMenu isOpen={isOpen} />} */}
         <MobileMenu isOpen={isOpen} />
       </>
     )

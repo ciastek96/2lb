@@ -70,6 +70,7 @@ const StyledBlockContent = styled(BlockContent)`
     &::before {
       margin-right: 6px;
     }
+
     &::after {
       margin-left: 6px;
     }
@@ -80,6 +81,7 @@ const StyledBlockContent = styled(BlockContent)`
     margin: 25px;
     padding: 0;
   }
+
   ol li {
     margin: 10px 0;
     list-style-position: inside;
@@ -88,6 +90,7 @@ const StyledBlockContent = styled(BlockContent)`
       margin-top: 0;
     }
   }
+
   ul li {
     margin: 10px 0;
     list-style: none;
@@ -102,6 +105,7 @@ const StyledBlockContent = styled(BlockContent)`
       margin-top: 0;
     }
   }
+
   img {
     max-width: 100%;
   }
@@ -109,11 +113,11 @@ const StyledBlockContent = styled(BlockContent)`
   ${({ index }) =>
     index &&
     css`
-  ul li {
-    ::before {
-      content: "✓";
-    }
-  `}
+      ul li {
+        ::before {
+          content: "✓";
+        }
+      }
+    `}
 `
-
 export default StyledBlockContent

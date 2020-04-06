@@ -2,9 +2,7 @@ import React from "react"
 import styled, { css } from "styled-components"
 import { Link, useStaticQuery, graphql } from "gatsby"
 
-import DropdownIcon from "../../assets/ikonate/svg/chevron-down.svg"
-import { FaFacebookF, FaSortDown } from "react-icons/fa"
-
+import { FaFacebookF } from "react-icons/fa"
 import { MdExpandMore } from "react-icons/md"
 
 const StyledList = styled.ul`

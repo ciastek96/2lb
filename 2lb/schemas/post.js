@@ -41,6 +41,12 @@ export default {
       of: [{ type: "image" }],
     },
     {
+      name: "videos",
+      title: "Adres URL do filmu",
+      type: "array",
+      of: [{ type: "url" }],
+    },
+    {
       name: "slug",
       title: "Adres slug",
       type: "slug",

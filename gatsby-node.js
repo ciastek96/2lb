@@ -2,8 +2,8 @@ const path = require(`path`)
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  const blogPostTemplate = path.resolve(`src/pages/postTemplate.js`)
-  const offerPageTemplate = path.resolve(`src/pages/offerPageTemplate.js`)
+  const blogPostTemplate = path.resolve(`src/templates/postTemplate.js`)
+  const offerPageTemplate = path.resolve(`src/templates/offerPageTemplate.js`)
 
   const postQuery = await graphql(
     `
@@ -17,8 +17,7 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-    `,
-    { limit: 1000 }
+    `
   )
 
   const offerPageQuery = await graphql(
@@ -33,8 +32,7 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-    `,
-    { limit: 1000 }
+    `
   )
 
   postQuery.data.allSanityPost.nodes.forEach(post => {

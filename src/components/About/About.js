@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react"
+import React from "react"
 import styled from "styled-components"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
@@ -10,11 +10,9 @@ import Photo from "../../assets/box3.jpg"
 import Photo2 from "../../assets/box2.jpg"
 import Photo3 from "../../assets/box1.jpg"
 
-import { IoMdCheckmark } from "react-icons/io"
-
 const StyledInnerWrapper = styled.div`
   max-width: ${({ theme }) => theme.breakpoints.md};
-  margin: 35px auto;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 45% 55%;
   justify-content: center;
@@ -26,15 +24,10 @@ const StyledInnerWrapper = styled.div`
   }
 `
 const StyledImageWrapper = styled.div`
-  max-width: 100%;
+  width: 100%;
+  max-width: 500px;
   padding: 25px;
   display: block;
-  max-height: 600px;
-`
-
-const StyledIoMdCheckmark = styled(IoMdCheckmark)`
-  color: ${({ theme }) => theme.primary};
-  margin-right: 10px;
 `
 
 const StyledContent = styled.div`
@@ -49,39 +42,6 @@ const StyledContent = styled.div`
   }
 `
 
-const StyledImg = styled.div`
-  /* position: absolute;
-  max-width: 400px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 1;
-  margin-right: 65px; */
-  height: 100%;
-  width: 100%;
-  background: url(${({ src }) => src});
-  background-position: center;
-  background-size: cover;
-`
-
-const Paragraph = styled.p`
-  color: ${({ theme }) => theme.white};
-  text-align: justify;
-  line-height: 1.8;
-  overflow: hidden;
-  z-index: 2;
-
-  span {
-    padding: 0;
-    margin: 8px 25px;
-    display: block;
-  }
-`
-const StyledImgix = styled(Img)`
-  width: 100%;
-  height: 100%;
-`
-
 const About = () => {
   const query = useStaticQuery(graphql`
     {
@@ -89,8 +49,8 @@ const About = () => {
         _rawText
         photo {
           asset {
-            fluid {
-              src
+            fluid(maxWidth: 400) {
+              ...GatsbySanityImageFluid
             }
           }
         }
@@ -100,7 +60,7 @@ const About = () => {
   return (
     <StyledInnerWrapper>
       <StyledImageWrapper>
-        <StyledImg src={query.sanityAbout.photo.asset.fluid.src} />
+        <Img fluid={query.sanityAbout.photo.asset.fluid} />
       </StyledImageWrapper>
       <StyledContent>
         <StyledBlockContent blocks={query.sanityAbout._rawText} index />

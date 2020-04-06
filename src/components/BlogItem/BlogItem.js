@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
+
 import Heading from "../Heading/Heading"
 import Button from "../Button/Button"
 

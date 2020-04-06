@@ -5,6 +5,7 @@ import styled from "styled-components"
 
 const StyledWrapper = styled.div`
   width: 100%;
+  margin-top: 35px;
 `
 
 const Lightbox = ({ images }) => {

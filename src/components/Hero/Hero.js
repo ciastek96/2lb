@@ -1,24 +1,10 @@
-import React, { Component } from "react"
-import styled, { keyframes, css } from "styled-components"
+import React from "react"
+import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 
 import Overlay from "../Overlay/Overlay"
-import HeroBg from "../../assets/hero/hero2.jpg"
 import HeroHeading from "./HeroHeading/HeroHeading"
-
-// const StyledWrapper = styled.div`
-//   height: 100vh;
-//   width: 100%;
-//   margin: 0;
-//   /* background: url(${HeroBg}); */
-//   background-position: 50% 50%;
-//   background-size: cover;
-//   background-repeat: no-repeat;
-//   overflow: hidden;
-//   position: relative;
-//   z-index: 1;
-// `
 
 const Container = styled.div`
   .HeroStyledWrapper {
@@ -41,15 +27,6 @@ const Hero = () => {
     }
   `)
   return (
-    // <StyledWrapper>
-    //   <BackgroundImage
-    //     Tag="div"
-    //     fluid={query.file.childImageSharp.fluid}
-    //     alt="Hero Background"
-    //   />
-    //   <Overlay />
-    //   <HeroHeading />
-    // </StyledWrapper>
     <Container>
       <BackgroundImage
         Tag="div"
