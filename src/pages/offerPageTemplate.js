@@ -5,6 +5,7 @@ import { Link, graphql } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 import Lightbox from "../components/Lightbox/Lightbox"
 
+import SEO from "../components/seo"
 import Layout from "../layout/Layout"
 import Heading from "../components/Heading/Heading"
 import Fluidbox from "../components/Fluidbox/Fluidbox"
@@ -85,6 +86,7 @@ class OfferPageTemplate extends Component {
     const { gallery, images } = this.state
     return (
       <Layout>
+        <SEO title={`${item.title} - aktualności`} />
         <Fluidbox title={item.title}>
           <BackgroundImage
             Tag="div"

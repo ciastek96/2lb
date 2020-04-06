@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { graphql } from "gatsby"
 
+import SEO from "../components/seo"
 import BackgroundImage from "gatsby-background-image"
 import Layout from "../layout/Layout"
 import Heading from "../components/Heading/Heading"
@@ -29,6 +30,7 @@ const OfferPage = ({
   },
 }) => (
   <Layout>
+    <SEO title="Oferta" />
     <Fluidbox title="Oferta">
       <BackgroundImage
         Tag="div"
@@ -51,28 +53,6 @@ const OfferPage = ({
     </StyledWrapper>
   </Layout>
 )
-
-// export const query = graphql`
-//   {
-//     allDatoCmsOffer {
-//       nodes {
-//         title
-//         slug
-//         bgImg {
-//           url
-//         }
-//       }
-//     }
-//     file(relativePath: { eq: "hero/4b.jpg" }) {
-//       childImageSharp {
-//         fluid(maxWidth: 2560) {
-//           ...GatsbyImageSharpFluid
-//         }
-//       }
-//     }
-//   }
-// `
-
 export const query = graphql`
   {
     allSanityOffer {

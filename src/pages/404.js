@@ -54,6 +54,7 @@ const StyledButton = styled(Button)`
 
 const NotFoundPage = ({ ...props }) => (
   <Layout>
+    <SEO title="Strona o podanym adresie nie istnieje" />
     <StyledWrapper>
       <StyledInnerWrapper>
         <Paragraph>Strona o podanym adresie nie istnieje</Paragraph>

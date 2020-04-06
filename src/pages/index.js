@@ -21,6 +21,7 @@ const StyledWrapper = styled.div`
 const IndexPage = () => (
   <Layout hero>
     <StyledWrapper>
+      <SEO title="2LB - renowacja, mycie, impregnacja" />
       <Heading big>O nas</Heading>
       <About />
       <Heading big>Dlaczego my?</Heading>

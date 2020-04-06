@@ -4,6 +4,7 @@ import { graphql } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 import Layout from "../layout/Layout"
 
+import SEO from "../components/seo"
 import Fluidbox from "../components/Fluidbox/Fluidbox"
 import ContactForm from "../components/ContactForm/ContactForm"
 import ContactDataItem from "../components/ContactDataItem/ContactDataItem"
@@ -46,6 +47,7 @@ const ContactDataWrapper = styled.div`
 
 const ContactPage = ({ data }) => (
   <Layout>
+    <SEO title="Kontakt" />
     <Fluidbox title="Kontakt">
       <BackgroundImage
         Tag="div"

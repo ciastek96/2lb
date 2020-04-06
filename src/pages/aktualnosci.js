@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { graphql } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 
+import SEO from "../components/seo"
 import Layout from "../layout/Layout"
 import Heading from "../components/Heading/Heading"
 import Fluidbox from "../components/Fluidbox/Fluidbox"
@@ -33,7 +34,7 @@ class BlogPage extends Component {
     } = this.props
     return (
       <Layout>
-        {console.log(file)}
+        <SEO title="Aktualności" />
         <Fluidbox title="Aktualności">
           <BackgroundImage
             Tag="div"

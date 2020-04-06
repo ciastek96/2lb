@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import Img from "gatsby-image"
 import { Link, useStaticQuery, graphql } from "gatsby"
 
 import ContactDataItem from "../ContactDataItem/ContactDataItem"
@@ -31,6 +32,7 @@ const Row = styled.div`
 const Paragraph = styled.p`
   margin: 25px 0;
   line-height: 1.7;
+  text-align: left;
   color: ${({ theme }) => theme.grey300};
   font-size: ${({ theme }) => theme.fontSize.xs};
 `
@@ -61,6 +63,11 @@ const StyledLink = styled(Link)`
   }
 `
 
+const StyledImg = styled(Img)`
+  max-height: 150px;
+  width: 100%;
+`
+
 const StyledLogo = styled.img`
   display: block;
   margin-top: 5px;
@@ -87,6 +94,16 @@ const Footer = () => {
         email
         address
       }
+      sanityFooter {
+        logo {
+          asset {
+            fluid(maxWidth: 300) {
+              ...GatsbySanityImageFluid
+            }
+          }
+        }
+        content
+      }
     }
   `)
 
@@ -94,13 +111,10 @@ const Footer = () => {
     <StyledWrapper>
       <StyledInnerWrapper>
         <Row>
-          {/* <Link to="/">
-            <StyledLogo
-              src={datoCmsFooter.logo.url}
-              alt={datoCmsFooter.logo.alt}
-            />
+          <Link to="/">
+            <StyledImg fluid={data.sanityFooter.logo.asset.fluid} />
           </Link>
-          <Paragraph>{datoCmsFooter.content}</Paragraph> */}
+          <Paragraph>{data.sanityFooter.content}</Paragraph>
         </Row>
         <Row>
           <Heading primary>Kontakt</Heading>
@@ -134,7 +148,7 @@ const Footer = () => {
           <Heading primary>Strony</Heading>
           <StyledList>
             <StyledListItem>
-              <StyledLink to="/">Strona główna</StyledLink>
+              <StyledLink to="/">O nas</StyledLink>
             </StyledListItem>
             <StyledListItem>
               <StyledLink to="/oferta">Oferta</StyledLink>

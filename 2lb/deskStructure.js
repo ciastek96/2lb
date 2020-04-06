@@ -21,8 +21,17 @@ export default () =>
             .documentId("about")
         ),
       S.divider(),
+      S.listItem()
+        .title("Stopka")
+        .child(
+          S.document()
+            .schemaType("footer")
+            .documentId("footer")
+        ),
+      S.divider(),
       // List out the rest of the document types, but filter out the config type
       ...S.documentTypeListItems().filter(
-        listItem => !["personalData", "about"].includes(listItem.getId())
+        listItem =>
+          !["personalData", "about", "footer"].includes(listItem.getId())
       ),
     ])

@@ -7,6 +7,7 @@ import post from "./post"
 import oferta from "./oferta"
 import firma from "./firma"
 import dane from "./dane"
+import stopka from "./stopka"
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -20,5 +21,6 @@ export default createSchema({
     oferta,
     firma,
     dane,
+    stopka,
   ]),
 })

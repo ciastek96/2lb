@@ -56,10 +56,6 @@ const StyledLink = styled(Link)`
     visibility: visible;
   }
 
-  &.active {
-    color: ${({ theme }) => theme.primary};
-  }
-
   ul {
     position: absolute;
     top: 50px;
@@ -83,6 +79,10 @@ const StyledLink = styled(Link)`
     li:hover {
       color: ${({ theme }) => theme.primary};
     }
+  }
+
+  &.active {
+    color: ${({ theme }) => theme.primary};
   }
 `
 const StyledOfferLink = styled(Link)`
@@ -131,7 +131,7 @@ const Navigation = ({ mobile }) => {
         <StyledListItem>O nas</StyledListItem>
       </StyledLink>
 
-      <StyledLink to="/oferta" activeClassName="active">
+      <StyledLink to="/oferta" activeClassName="active" partiallyActive={true}>
         <StyledListItem>
           Oferta
           {!mobile && query.allSanityOffer.nodes.length > 0 ? (
@@ -140,7 +140,10 @@ const Navigation = ({ mobile }) => {
               <ul>
                 {query.allSanityOffer.nodes.map(item => (
                   <li key={item.slug.current}>
-                    <StyledOfferLink to={`/oferta/${item.slug.current}`}>
+                    <StyledOfferLink
+                      to={`/oferta/${item.slug.current}`}
+                      activeClassName="active"
+                    >
                       {item.title}
                     </StyledOfferLink>
                   </li>
@@ -151,7 +154,11 @@ const Navigation = ({ mobile }) => {
         </StyledListItem>
       </StyledLink>
 
-      <StyledLink to="/aktualnosci" activeClassName="active">
+      <StyledLink
+        to="/aktualnosci"
+        activeClassName="active"
+        partiallyActive={true}
+      >
         <StyledListItem>Aktualności</StyledListItem>
       </StyledLink>
 

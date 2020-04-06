@@ -5,6 +5,7 @@ import BackgroundImage from "gatsby-background-image"
 
 import { render } from "react-dom"
 
+import SEO from "../components/seo"
 import Layout from "../layout/Layout"
 import Heading from "../components/Heading/Heading"
 import Fluidbox from "../components/Fluidbox/Fluidbox"
@@ -18,7 +19,7 @@ const StyledImageItem = styled.img`
 `
 
 const StyledWrapper = styled.div`
-  max-width: ${({ theme }) => theme.breakpoints.lg};
+  max-width: ${({ theme }) => theme.breakpoints.md};
   display: flex;
   margin: 0 auto;
   padding: 35px;
@@ -95,6 +96,7 @@ class postTemplate extends Component {
     const { gallery, images } = this.state
     return (
       <Layout>
+        <SEO title={`${post.title} - aktualności`} />
         <Fluidbox title={post.title} date={post._createdAt}>
           <BackgroundImage
             Tag="div"
