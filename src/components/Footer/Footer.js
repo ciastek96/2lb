@@ -147,7 +147,7 @@ const Footer = () => {
           <Heading primary>Oferta</Heading>
           <StyledList>
             {data.allSanityOffer.nodes.map(item => (
-              <StyledListItem>
+              <StyledListItem key={item.slug.current}>
                 <StyledLink to={`/oferta/${item.slug.current}`}>
                   {item.title}
                 </StyledLink>

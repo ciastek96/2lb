@@ -121,7 +121,7 @@ class ContactForm extends Component {
             return errors
           }}
           onSubmit={(values, { setSubmitting }) => {
-            handleSubmit(values)
+            this.handleSubmit(values)
           }}
         >
           {({ isSubmitting }) => (
