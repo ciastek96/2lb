@@ -54,12 +54,6 @@ const StyledButton = styled(Button)`
   margin-top: 15px;
 `
 
-function encode(data) {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&")
-}
-
 class ContactForm extends Component {
   state = {
     isModalOpen: false,
@@ -77,11 +71,20 @@ class ContactForm extends Component {
     }))
   }
 
+  encode = data => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&")
+  }
+
   handleSubmit = values => {
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode(values),
+      body: this.encode({
+        "form-name": "contact",
+        ...values,
+      }),
     })
       .then(() => navigate("/success"))
       .catch(error => alert(error))
@@ -137,7 +140,6 @@ class ContactForm extends Component {
             <StyledForm
               name="contact"
               method="post"
-              action="/pages/success"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
             >
