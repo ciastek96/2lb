@@ -132,7 +132,7 @@ class ContactForm extends Component {
             <StyledForm
               name="contact"
               method="post"
-              action="/contact/thanks/"
+              action="/pages/success"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
             >
