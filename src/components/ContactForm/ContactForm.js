@@ -125,7 +125,12 @@ class ContactForm extends Component {
           }}
         >
           {({ isSubmitting }) => (
-            <StyledForm>
+            <StyledForm
+              name="contact"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+            >
+              <input type="hidden" name="form-name" value="contact" />
               <Label forHtml="fullname">Imie i nazwisko</Label>
               <StyledField type="text" name="fullname" />
               <StyledErrorMessage name="fullname" component="div" />
