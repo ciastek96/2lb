@@ -23,9 +23,15 @@ const StyledInnerWrapper = styled.div`
 `
 
 const Paragraph = styled.p`
+  max-width: ${({ theme }) => theme.breakpoints.md};
   color: ${({ theme }) => theme.primary};
   font-size: ${({ theme }) => theme.fontSize.l};
-  margin: 0;
+  margin: 0 45px;
+  text-align: center;
+
+  @media all and (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    font-size: ${({ theme }) => theme.fontSize.s};
+  }
 `
 
 const StyledButton = styled(Button)`

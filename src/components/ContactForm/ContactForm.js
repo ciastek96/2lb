@@ -80,7 +80,7 @@ class ContactForm extends Component {
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ values }),
+      body: encode(values),
     })
       .then(() => alert("Wiadomość została pomyślnie wysłana"))
       .catch(error => alert(error))
@@ -125,7 +125,11 @@ class ContactForm extends Component {
             return errors
           }}
           onSubmit={(values, { setSubmitting }) => {
-            this.handleSubmit({ values })
+            this.handleSubmit({
+              fullname: values.fullname,
+              email: values.email,
+              content: values.content,
+            })
           }}
         >
           {({ isSubmitting }) => (
