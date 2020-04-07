@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import styled from "styled-components"
+import { navigate } from "gatsby"
 import { Formik, Form, Field, ErrorMessage } from "formik"
 
 import Heading from "../Heading/Heading"
@@ -82,7 +83,7 @@ class ContactForm extends Component {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode(values),
     })
-      .then(() => alert("Wiadomość została pomyślnie wysłana"))
+      .then(() => navigate("/success"))
       .catch(error => alert(error))
   }
 
@@ -136,7 +137,7 @@ class ContactForm extends Component {
             <StyledForm
               name="contact"
               method="post"
-              action="/success"
+              action="/pages/success"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
             >
