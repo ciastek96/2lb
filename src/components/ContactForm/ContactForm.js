@@ -53,6 +53,12 @@ const StyledButton = styled(Button)`
   margin-top: 15px;
 `
 
+function encode(data) {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&")
+}
+
 class ContactForm extends Component {
   state = {
     isModalOpen: false,
@@ -73,12 +79,10 @@ class ContactForm extends Component {
   handleSubmit = values => {
     fetch("/", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: { values },
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ values }),
     })
-      .then(() => alert("Success!"))
+      .then(() => alert("Wiadomość została pomyślnie wysłana"))
       .catch(error => alert(error))
   }
 
