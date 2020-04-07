@@ -125,14 +125,14 @@ class ContactForm extends Component {
             return errors
           }}
           onSubmit={(values, { setSubmitting }) => {
-            this.handleSubmit(values)
+            this.handleSubmit({ values })
           }}
         >
           {({ isSubmitting }) => (
             <StyledForm
               name="contact"
               method="post"
-              action="/pages/success"
+              action="/success"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
             >
