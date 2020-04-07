@@ -5,11 +5,8 @@ import BackgroundImage from "gatsby-background-image"
 
 import SEO from "../components/seo"
 import Layout from "../layout/Layout"
-import Heading from "../components/Heading/Heading"
 import Fluidbox from "../components/Fluidbox/Fluidbox"
-import BlogItem from "../components/BlogItem/BlogItem"
 import Article from "../components/Article/Article"
-import Photo from "../assets/1.jpg"
 
 const StyledWrapper = styled.div`
   display: grid;

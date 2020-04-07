@@ -13,7 +13,7 @@ const StyledWrapper = styled.div`
 `
 const StyledItem = styled.div`
   top: 0;
-  margin: 35px;
+  padding: 35px;
   display: flex;
   flex-direction: column;
   justify-content: center;

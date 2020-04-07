@@ -58,8 +58,7 @@ class ContactForm extends Component {
     isModalOpen: false,
   }
 
-  toggleModal = e => {
-    e.preventDefault()
+  toggleModal = values => {
     this.setState(prevState => ({
       isModalOpen: !prevState.isModalOpen,
     }))
@@ -69,7 +68,18 @@ class ContactForm extends Component {
     this.setState(prevState => ({
       isModalOpen: !prevState.isModalOpen,
     }))
-    console.log("Message sent")
+  }
+
+  handleSubmit = values => {
+    fetch("/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: { values },
+    })
+      .then(() => alert("Success!"))
+      .catch(error => alert(error))
   }
 
   render() {
@@ -111,11 +121,7 @@ class ContactForm extends Component {
             return errors
           }}
           onSubmit={(values, { setSubmitting }) => {
-            console.log(values)
-            setTimeout(() => {
-              alert(JSON.stringify(values, null, 2))
-              setSubmitting(false)
-            }, 400)
+            handleSubmit(values)
           }}
         >
           {({ isSubmitting }) => (
@@ -131,11 +137,7 @@ class ContactForm extends Component {
               <Label forHtml="content">Twój adres e-mail</Label>
               <StyledTextarea component="textarea" name="content" />
               <StyledErrorMessage name="content" component="div" />
-              <StyledButton
-                type="submit"
-                disabled={isSubmitting}
-                disabled="true"
-              >
+              <StyledButton type="submit" disabled={isSubmitting}>
                 Wyślij
               </StyledButton>
             </StyledForm>
