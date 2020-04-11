@@ -30,13 +30,17 @@ const IndexPage = () => (
     <CookieConsent
       location="bottom"
       buttonText="Akceptuję"
-      cookieName="myAwesomeCookieName2"
-      style={{ fontSize: "14px", textAlign: "center", background: "#212121" }}
+      style={{
+        fontSize: "14px",
+        textAlign: "center",
+        background: "#212121",
+        width: "100%",
+      }}
       buttonStyle={{
         color: "#000",
-        textAlign: "left",
+        margin: "5px 15px",
         fontSize: "12px",
-        padding: "8px 15px",
+        padding: "8px 25px",
         borderRadius: "25px",
         background: "#fff",
       }}

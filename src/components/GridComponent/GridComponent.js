@@ -6,10 +6,8 @@ import { IoMdDoneAll, IoMdStar, IoIosBulb } from "react-icons/io"
 const StyledWrapper = styled.div`
   display: grid;
   width: 100%;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   grid-gap: 35px;
-  margin: 35px auto;
-  position: relative;
 `
 const StyledItem = styled.div`
   top: 0;
