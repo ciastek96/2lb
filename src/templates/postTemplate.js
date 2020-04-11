@@ -112,7 +112,7 @@ export const query = graphql`
       _rawImages(resolveReferences: { maxDepth: 2 })
       background {
         asset {
-          fluid {
+          fluid(maxHeight: 1080) {
             ...GatsbySanityImageFluid
           }
         }
