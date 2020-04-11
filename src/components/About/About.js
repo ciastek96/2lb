@@ -4,11 +4,6 @@ import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 
 import StyledBlockContent from "../../components/StyledBlockContent/StyledBlockContent"
-import Lightbox from "../../components/Lightbox/Lightbox"
-
-import Photo from "../../assets/box3.jpg"
-import Photo2 from "../../assets/box2.jpg"
-import Photo3 from "../../assets/box1.jpg"
 
 const StyledInnerWrapper = styled.div`
   max-width: ${({ theme }) => theme.breakpoints.md};

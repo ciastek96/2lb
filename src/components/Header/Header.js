@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
 
-import Logo from "../../assets/logo10.png"
+import Logo from "../../assets/logo_3a_xl.svg"
 import Navigation from "../Navigation/Navigation"
 import Hamburger from "../Hamburger/Hamburger"
 
@@ -41,6 +41,7 @@ const StyledLink = styled(Link)`
 
   img {
     max-width: 150px;
+    height: 80px;
   }
 `
 
@@ -92,7 +93,7 @@ class Header extends Component {
         <StyledInnerWrapper>
           <Logotype>
             <StyledLink to="/">
-              <img src={Logo} alt="logo" />
+              <img src={Logo} alt="2LB Second Life Bruk logotyp" />
             </StyledLink>
           </Logotype>
           {isHamburgerVisible ? <Hamburger /> : <Navigation />}

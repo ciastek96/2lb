@@ -200,6 +200,11 @@ const Footer = () => {
               <StyledLink to="/kontakt">Kontakt</StyledLink>
             </StyledListItem>
             <StyledListItem>
+              <StyledLink to="/polityka-prywatnosci">
+                Polityka prywatności
+              </StyledLink>
+            </StyledListItem>
+            <StyledListItem>
               <a
                 href="https://www.facebook.com/Second-Life-Bruk-254129215498165/"
                 target="_blank"

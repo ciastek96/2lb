@@ -102,7 +102,12 @@ class ContactForm extends Component {
         )}
         <Heading>Formularz kontaktowy</Heading>
         <Formik
-          initialValues={{ fullname: "", email: "", content: "" }}
+          initialValues={{
+            fullname: "",
+            email: "",
+            content: "",
+            policy: "",
+          }}
           autoComplete="off"
           validate={values => {
             const errors = {}
@@ -115,15 +120,16 @@ class ContactForm extends Component {
             }
             if (!values.fullname) {
               errors.fullname = "Należy wypełnić pole"
-            }
-            if (values.fullname.length < 4) {
+            } else if (values.fullname.length < 4) {
               errors.fullname = "Należy wpisać minimum 4 znaki"
             }
             if (!values.content) {
               errors.content = "Należy wypełnić pole"
-            }
-            if (values.content.length < 10) {
+            } else if (values.content.length < 10) {
               errors.content = "Należy wpisać minimum 10 znaków"
+            }
+            if (!values.policy) {
+              errors.policy = "Należy zaznaczyć pole"
             }
 
             return errors
@@ -149,17 +155,21 @@ class ContactForm extends Component {
                   Don’t fill this out: <input name="bot-field" />
                 </label>
               </div>
-              <Label forHtml="fullname">Imie i nazwisko</Label>
+              <Label forHtml="fullname">Imię i nazwisko</Label>
               <StyledField type="text" name="fullname" required />
               <StyledErrorMessage name="fullname" component="div" />
-
               <Label forHtml="email">Twój adres e-mail</Label>
               <StyledField type="email" name="email" required />
               <StyledErrorMessage name="email" component="div" />
-
-              <Label forHtml="content">Twój adres e-mail</Label>
+              <Label forHtml="content">Treść wiadomości</Label>
               <StyledTextarea component="textarea" name="content" required />
               <StyledErrorMessage name="content" component="div" />
+              <Label forHtml="policy">
+                <Field type="checkbox" name="policy" /> Wyrażam zgodę na
+                przetwarzanie danych osobowych przez firmę 2LB w celu udzielenia
+                odpowiedzi na zapytanie.
+              </Label>
+              <StyledErrorMessage name="policy" component="div" />
               <StyledButton type="submit" disabled={isSubmitting}>
                 Wyślij
               </StyledButton>

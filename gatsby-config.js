@@ -7,8 +7,8 @@ module.exports = {
       "Renowacja, mycie oraz impregnacja kostki brukowej, usługi brukarskie, projektowanie ogrodów",
     url: "https://www.2lb.pl", // No trailing slash allowed!
     siteLanguage: "pl",
-    image: "src/assets/logo10.png", // Path to your image you placed in the 'static' folder
-    favicon: "src/assets/favicon.png",
+    image: "src/assets/2lb_a.svg", // Path to your image you placed in the 'static' folder
+    favicon: "src/assets/favicon.svg",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

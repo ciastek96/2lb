@@ -1,12 +1,12 @@
 import React from "react"
 import styled from "styled-components"
-import { graphql } from "gatsby"
 
 import Layout from "../layout/Layout"
 import Heading from "../components/Heading/Heading"
 import About from "../components/About/About"
+import CookieConsent from "react-cookie-consent"
+
 import GridComponent from "../components/GridComponent/GridComponent"
-import Img from "gatsby-image"
 
 import SEO from "../components/seo"
 
@@ -27,6 +27,23 @@ const IndexPage = () => (
       <Heading big>Dlaczego my?</Heading>
       <GridComponent />
     </StyledWrapper>
+    <CookieConsent
+      location="bottom"
+      buttonText="Akceptuję"
+      cookieName="myAwesomeCookieName2"
+      style={{ fontSize: "14px", textAlign: "center", background: "#212121" }}
+      buttonStyle={{
+        color: "#000",
+        textAlign: "left",
+        fontSize: "12px",
+        padding: "8px 15px",
+        borderRadius: "25px",
+        background: "#fff",
+      }}
+      expires={150}
+    >
+      Ta strona wykorzystuje pliki cookies.
+    </CookieConsent>
   </Layout>
 )
 
