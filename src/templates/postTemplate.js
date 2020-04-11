@@ -60,7 +60,7 @@ class postTemplate extends Component {
     } = this.props
     if (post._rawImages) {
       const rawImages = post._rawImages.map(el => ({
-        src: el.asset.url,
+        src: `${el.asset.url}?auto=format`,
         width: el.asset.metadata.dimensions.width,
         height: el.asset.metadata.dimensions.height,
       }))
@@ -110,13 +110,6 @@ export const query = graphql`
       _rawContent
       videos
       _rawImages(resolveReferences: { maxDepth: 2 })
-      background {
-        asset {
-          fluid(maxHeight: 1080) {
-            ...GatsbySanityImageFluid
-          }
-        }
-      }
     }
     file(relativePath: { eq: "hero/4b.jpg" }) {
       childImageSharp {

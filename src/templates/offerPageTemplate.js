@@ -53,7 +53,7 @@ class OfferPageTemplate extends Component {
     } = this.props
     if (item._rawImages) {
       const rawImages = item._rawImages.map(el => ({
-        src: el.asset.url,
+        src: `${el.asset.url}?auto=format`,
         width: el.asset.metadata.dimensions.width,
         height: el.asset.metadata.dimensions.height,
       }))
@@ -99,22 +99,8 @@ export const query = graphql`
       slug {
         current
       }
-      images {
-        asset {
-          fluid(maxHeight: 1080) {
-            ...GatsbySanityImageFluid
-          }
-        }
-      }
       _rawContent
       _rawImages(resolveReferences: { maxDepth: 2 })
-      background {
-        asset {
-          fluid(maxWidth: 2560) {
-            ...GatsbySanityImageFluid
-          }
-        }
-      }
     }
     file(relativePath: { eq: "hero/4b.jpg" }) {
       childImageSharp {
