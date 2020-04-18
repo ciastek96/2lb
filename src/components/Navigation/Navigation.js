@@ -54,6 +54,17 @@ const DropdownMenuItem = styled.li`
   text-align: left;
   list-style: none;
   color: ${({ theme }) => theme.dark2};
+
+  ${StyledLink}:hover > &,
+  &:hover {
+    color: ${({ theme }) => theme.primary};
+  }
+
+  ${StyledLink}:hover & {
+    top: 35px;
+    opacity: 1;
+    visibility: visible;
+  }
 `
 
 const StyledLink = styled(Link)`
@@ -64,20 +75,6 @@ const StyledLink = styled(Link)`
   transition: color 0.15s ease-in-out;
   font-weight: 500;
   position: relative;
-
-  &:hover > ${DropdownMenuItem} {
-    color: ${({ theme }) => theme.primary};
-  }
-
-  &:hover ${DropdownMenu} {
-    top: 35px;
-    opacity: 1;
-    visibility: visible;
-  }
-
-  ${DropdownMenuItem}:hover {
-    color: ${({ theme }) => theme.primary};
-  }
 
   &.active {
     color: ${({ theme }) => theme.primary};
