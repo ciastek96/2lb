@@ -1,8 +1,5 @@
-<a href="https://www.2lb.pl">
-  <img src="./src/assets/2lb_b.svg> alt="2LB Logotype" width="100px"/>
-</a>
-![Test Image 3](/src/assets/2lb_b.svg)
-=====================================
+# 2LB Website
+
 Simple website created for 2LB Company, based on Gatsby and SanityCMS. I also used Styled-Components and GraphQL.
 
 ### Getting up and running
