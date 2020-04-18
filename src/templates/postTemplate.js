@@ -108,6 +108,13 @@ export const query = graphql`
       title
       _createdAt(locale: "PL", formatString: "DD MMMM YYYY")
       _rawContent
+      background {
+        asset {
+          fluid(maxWidth: 1200) {
+            ...GatsbySanityImageFluid
+          }
+        }
+      }
       videos
       _rawImages(resolveReferences: { maxDepth: 2 })
     }
