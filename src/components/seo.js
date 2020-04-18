@@ -13,7 +13,6 @@ const SEO = ({ title, description, image, pathname, article }) => (
           defaultDescription,
           siteUrl,
           defaultImage,
-          twitterUsername,
         },
       },
     }) => {

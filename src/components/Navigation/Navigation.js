@@ -35,6 +35,27 @@ const StyledListItem = styled.li`
   position: relative;
 `
 
+const DropdownMenu = styled.ul`
+  position: absolute;
+  top: 50px;
+  left: -25px;
+  background: ${({ theme }) => theme.white};
+  border-radius: 15px;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease-in-out;
+`
+
+const DropdownMenuItem = styled.li`
+  text-align: left;
+  list-style: none;
+  color: ${({ theme }) => theme.dark2};
+`
+
 const StyledLink = styled(Link)`
   margin: 0 20px;
   padding: 15px 0;
@@ -44,45 +65,25 @@ const StyledLink = styled(Link)`
   font-weight: 500;
   position: relative;
 
-  &:hover > li {
+  &:hover > ${DropdownMenuItem} {
     color: ${({ theme }) => theme.primary};
   }
 
-  &:hover ul {
+  &:hover ${DropdownMenu} {
     top: 35px;
     opacity: 1;
     visibility: visible;
   }
 
-  ul {
-    position: absolute;
-    top: 50px;
-    left: -25px;
-    background: ${({ theme }) => theme.white};
-    border-radius: 15px;
-    margin: 0;
-    padding: 0;
-    opacity: 0;
-    visibility: hidden;
-    overflow: hidden;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25);
-    transition: all 0.3s ease-in-out;
-
-    li {
-      text-align: left;
-      list-style: none;
-      color: ${({ theme }) => theme.dark2};
-    }
-
-    li:hover {
-      color: ${({ theme }) => theme.primary};
-    }
+  ${DropdownMenuItem}:hover {
+    color: ${({ theme }) => theme.primary};
   }
 
   &.active {
     color: ${({ theme }) => theme.primary};
   }
 `
+
 const StyledOfferLink = styled(Link)`
   color: ${({ theme }) => theme.dark2};
   text-decoration: none;
@@ -135,18 +136,18 @@ const Navigation = ({ mobile }) => {
           {!mobile && query.allSanityOffer.nodes.length > 0 ? (
             <>
               <StyledMdExpandMore />
-              <ul>
+              <DropdownMenu>
                 {query.allSanityOffer.nodes.map(item => (
-                  <li key={item.slug.current}>
+                  <DropdownMenuItem key={item.slug.current}>
                     <StyledOfferLink
                       to={`/oferta/${item.slug.current}`}
                       activeClassName="active"
                     >
                       {item.title}
                     </StyledOfferLink>
-                  </li>
+                  </DropdownMenuItem>
                 ))}
-              </ul>
+              </DropdownMenu>
             </>
           ) : null}
         </StyledListItem>
