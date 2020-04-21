@@ -32,8 +32,6 @@ const Lightbox = ({ images }) => {
               currentIndex={currentImage}
               views={images.map(x => ({
                 ...x,
-                srcset: x.srcSet,
-                caption: x.title,
               }))}
             />
           </Modal>
