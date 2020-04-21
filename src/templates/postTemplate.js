@@ -46,7 +46,10 @@ const StyledInnerWrapper = styled.div`
   }
 `
 
-const StyledImg = styled(Img)``
+const StyledImg = styled(Img)`
+  width: 100%;
+  height: auto;
+`
 
 class postTemplate extends Component {
   state = {
