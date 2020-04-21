@@ -1,6 +1,6 @@
-# URO-MK Website - in progress
+# 2LB Website
 
-Website is creating for my family's company - URO-MK, where I often work when I don't code. Based on Gatsby, SanityCMS and Styled-Components.
+Simple website created for 2LB Company, based on Gatsby and SanityCMS. I also used Styled-Components and GraphQL.
 
 ### Getting up and running
 
@@ -8,4 +8,4 @@ Website is creating for my family's company - URO-MK, where I often work when I 
 2. Run `npm install`
 3. Run `gatsby develop`
 
-or go to <a href="https://uro-mk.netlify.app/">www.uro-mk.netlify.app/</a> to check a progress.
+or go to <a href="https://www.2lb.pl">www.2lb.pl</a>.
