@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
 
@@ -10,19 +10,15 @@ const StyledWrapper = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  background: transparent;
+  background: ${({ isScrolled, theme }) =>
+    isScrolled ? theme.dark2 : "transparent"};
   width: 100%;
-  height: 125px;
-
+  height: ${({ isScrolled }) => (isScrolled ? "100px" : "125px")};
   padding: 0 35px;
+  box-shadow: ${({ isScrolled }) =>
+    isScrolled ? "0 0 10px 0 rgba(0, 0, 0, 0.25)" : "0"};
   z-index: 999;
   transition: all 0.5s ease-in-out;
-
-  &.scrolled {
-    height: 100px;
-    background: ${({ theme }) => theme.dark2};
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25);
-  }
 `
 
 const StyledInnerWrapper = styled.div`
@@ -49,58 +45,38 @@ const Logotype = styled.div`
   margin: 0;
 `
 
-class Header extends Component {
-  constructor(props) {
-    super(props)
-    this.headerRef = React.createRef()
+const Header = () => {
+  const [isHamburgerVisible, setIsHamburgerVisible] = useState(true)
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll)
+    handleResize()
+    window.addEventListener("resize", handleResize)
+  })
+
+  const handleScroll = () => {
+    window.scrollY > 30 ? setIsScrolled(true) : setIsScrolled(false)
   }
 
-  state = {
-    isHamburgerVisible: false,
-  }
-
-  componentDidMount() {
-    window.addEventListener("scroll", this.handleScroll)
-    this.handleResize()
-    window.addEventListener("resize", this.handleResize)
-  }
-
-  handleScroll = () => {
-    const headerNode = this.headerRef.current
-    if (headerNode) {
-      window.scrollY > 30
-        ? headerNode.classList.add("scrolled")
-        : headerNode.classList.remove("scrolled")
-    }
-  }
-
-  handleResize = () => {
+  const handleResize = () => {
     window.innerWidth > 768
-      ? this.setState({
-          isHamburgerVisible: false,
-        })
-      : this.setState({
-          isHamburgerVisible: true,
-        })
+      ? setIsHamburgerVisible(false)
+      : setIsHamburgerVisible(true)
   }
 
-  scrollFn = () => {}
-
-  render() {
-    const { isHamburgerVisible } = this.state
-    return (
-      <StyledWrapper ref={this.headerRef} classList="scrolled">
-        <StyledInnerWrapper>
-          <Logotype>
-            <StyledLink to="/">
-              <img src={Logo} alt="2LB Second Life Bruk logotyp" />
-            </StyledLink>
-          </Logotype>
-          {isHamburgerVisible ? <Hamburger /> : <Navigation />}
-        </StyledInnerWrapper>
-      </StyledWrapper>
-    )
-  }
+  return (
+    <StyledWrapper isScrolled={isScrolled}>
+      <StyledInnerWrapper>
+        <Logotype>
+          <StyledLink to="/">
+            <img loading="lazy" src={Logo} alt="2LB Second Life Bruk logotyp" />
+          </StyledLink>
+        </Logotype>
+        {isHamburgerVisible ? <Hamburger /> : <Navigation />}
+      </StyledInnerWrapper>
+    </StyledWrapper>
+  )
 }
 
 export default Header

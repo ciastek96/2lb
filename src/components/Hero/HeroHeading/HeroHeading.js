@@ -70,8 +70,6 @@ const Title = styled.h1`
 `
 
 const HeroHeading = () => {
-  const timer = useRef()
-
   const headings = ["Układanie", "Mycie", "Renowacja"]
   const [currentHeading, setCurrentHeading] = useState(0)
   const items = headings.length - 1
@@ -83,14 +81,13 @@ const HeroHeading = () => {
     })
   }
 
-  useEffect(() => {
-    timer.current = setInterval(changeHeading, 5000)
-    return () => clearInterval(timer.current)
-  }, [])
-
   return (
     <StyledWrapper>
-      <Title animate key={headings[currentHeading]}>
+      <Title
+        animate
+        key={headings[currentHeading]}
+        onAnimationEnd={changeHeading}
+      >
         {headings[currentHeading]}
       </Title>
       <Title>kostki brukowej</Title>

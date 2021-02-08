@@ -8,6 +8,7 @@ import { MdExpandMore } from "react-icons/md"
 const StyledList = styled.ul`
   display: flex;
   flex-direction: row;
+  align-items: center;
   padding: 0;
 
   ${({ mobile }) =>
@@ -166,6 +167,7 @@ const Navigation = ({ mobile }) => {
       </StyledLink>
 
       <a
+        rel="noopener noreferrer"
         href="https://www.facebook.com/Second-Life-Bruk-254129215498165/"
         target="_blank"
       >

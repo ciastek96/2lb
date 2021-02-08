@@ -1,13 +1,11 @@
 import React from "react"
 import styled from "styled-components"
+import CookieConsent from "react-cookie-consent"
 
 import Layout from "../layout/Layout"
 import Heading from "../components/Heading/Heading"
 import About from "../components/About/About"
-import CookieConsent from "react-cookie-consent"
-
 import GridComponent from "../components/GridComponent/GridComponent"
-
 import SEO from "../components/seo"
 
 const StyledWrapper = styled.div`
