@@ -18,6 +18,8 @@ const StyledList = styled.ul`
   overflow: hidden;
   background: ${({ theme }) => theme.dark2};
   border-radius: 10px;
+  position: sticky;
+  top: 135px;
 `
 const StyledListItem = styled.li`
   margin: 0;

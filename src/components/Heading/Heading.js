@@ -2,6 +2,11 @@ import styled, { css } from "styled-components"
 
 const Heading = styled.h1`
   font-size: ${({ theme }) => theme.fontSize.l};
+  font-size: clamp(
+    ${({ theme }) => theme.fontSize.m},
+    5vw,
+    ${({ theme }) => theme.fontSize.l}
+  );
   font-weight: 600;
 
   ${({ big }) =>
@@ -10,6 +15,11 @@ const Heading = styled.h1`
       margin: 30px auto;
       text-align: center;
       font-size: ${({ theme }) => theme.fontSize.xl};
+      font-size: clamp(
+        ${({ theme }) => theme.fontSize.l},
+        5vw,
+        ${({ theme }) => theme.fontSize.xl}
+      );
     `}
 
   ${({ primary }) =>

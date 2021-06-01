@@ -4,14 +4,15 @@ import styled from "styled-components"
 import { IoMdDoneAll, IoMdStar, IoIosBulb } from "react-icons/io"
 
 const StyledWrapper = styled.div`
-  display: grid;
   width: 100%;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  grid-gap: 35px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 35px;
 `
 const StyledItem = styled.div`
-  top: 0;
-  padding: 35px;
+  flex: 1 1 30%;
+  // top: 0;
+  padding: 35px 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -26,6 +27,11 @@ const StyledItem = styled.div`
 const Heading = styled.h3`
   color: ${({ theme }) => theme.white};
   font-size: ${({ theme }) => theme.fontSize.m};
+  font-size: clamp(
+    ${({ theme }) => theme.fontSize.s},
+    4vw,
+    ${({ theme }) => theme.fontSize.m}
+  );
   font-weight: 600;
   margin: 20px 0;
   text-align: center;
