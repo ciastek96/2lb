@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useLayoutEffect, useState } from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
 
@@ -49,7 +49,7 @@ const Header = () => {
   const [isHamburgerVisible, setIsHamburgerVisible] = useState(true)
   const [isScrolled, setIsScrolled] = useState(false)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     window.addEventListener("scroll", handleScroll)
     handleResize()
     window.addEventListener("resize", handleResize)
